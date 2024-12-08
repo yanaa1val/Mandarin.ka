@@ -1,0 +1,27 @@
+{% extends 'diary/base.html' %}
+
+{% block content %}
+<h1>Пошук записів</h1>
+<div class="neon-line"></div>
+<form method="get" action="{% url 'search_entries' %}">
+    <input type="text" name="q" value="{{ query|default_if_none:'' }}" placeholder="Введіть пошуковий запит">
+    <button type="submit">Знайти</button>
+</form>
+
+{% if entries %}
+    <ul class="entry-list">
+    {% for entry in entries %}
+        <li>
+            <h2>{{ entry.title }}</h2>
+            <p>{{ entry.content|truncatewords:30 }}</p>
+            <small>{{ entry.date }}</small>
+            <a href="{% url 'edit_entry' entry.id %}">Змінити</a>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Нічого немає.</p>
+{% endif %}
+<div class="neon-line"></div>
+{% endblock %}
+

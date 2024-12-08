@@ -1,0 +1,13 @@
+{% extends 'diary/base.html' %}
+
+{% block content %}
+<h1>Змінити запис</h1>
+<div class="neon-line"></div>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Зберегти зміни</button>
+</form>
+<div class="neon-line"></div>
+{% endblock %}
+

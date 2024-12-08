@@ -1,0 +1,28 @@
+{% extends 'diary/base.html' %}
+
+{% block content %}
+<h1>Персонального щоденника студента</h1>
+<div class="neon-line"></div>
+<p>Твій особистий простір, записуй події, думки </p>
+
+{% if user.is_authenticated %}
+    <h2>Останні записи</h2>
+    {% if latest_entries %}
+        <ul class="entry-list">
+        {% for entry in latest_entries %}
+            <li>
+                <h3>{{ entry.title }}</h3>
+                <p>{{ entry.content|truncatewords:30 }}</p>
+                <small>{{ entry.date }}</small>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>Тут нічого немає. <a href="{% url 'add_entry' %}">Щоб ви тут записали?!</a>!</p>
+    {% endif %}
+{% else %}
+    <p>Потрібно, <a href="{% url 'login' %}">увійти</a>, щоб вести свій щоденник.</p>
+{% endif %}
+<div class="neon-line"></div>
+{% endblock %}
+

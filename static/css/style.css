@@ -1,0 +1,338 @@
+:root {
+  /* Визначення CSS-змінних для використання у стилях */
+  --primary-color: hsl(4, 90%, 58%, 1); /* Основний колір */
+  --secondary-color: hwb(23 0% 0%); /* Додатковий колір */
+  --background-color: hsl(0, 0%, 16%); /* Колір фону */
+  --text-color: hwb(0 84% 16%); /* Колір тексту */
+  --accent-color: hsl(30, 100%, 33%); /* Акцентний колір */
+}
+
+body {
+  font-family: 'Roboto', sans-serif; /* Шрифт сторінки */
+  line-height: 1.6; /* Висота рядка для читабельності тексту */
+  margin: 0; /* Відсутність зовнішнього відступу */
+  padding: 0; /* Відсутність внутрішнього відступу */
+  background: url('/static/image/mandarin.png'); /* Зображення для фону */
+  background-size: 30% auto; /* Розмір зображення */
+  background-position: right top; /* Розташування зображення */
+  background-repeat: no-repeat; /* Відсутність повторення зображення */
+  background-color: var(--background-color); /* Колір фону для сторінки */
+  color: var(--text-color); /* Колір тексту */
+  display: flex; /* Використання гнучкого контейнера */
+  flex-direction: column; /* Вертикальне розташування елементів */
+  min-height: 100vh; /* Мінімальна висота сторінки дорівнює висоті вікна */
+}
+
+header {
+  background-color: rgba(0, 0, 0, 0.8); /* Напівпрозорий чорний фон */
+  color: var(--primary-color); /* Колір тексту заголовка */
+  text-align: center; /* Центрування тексту */
+  padding: 1rem; /* Відступи навколо тексту */
+  position: fixed; /* Закріплення заголовка у верхній частині сторінки */
+  width: 100%; /* Заголовок на всю ширину сторінки */
+  top: 0; /* Розташування зверху */
+  z-index: 1000; /* Вищий пріоритет для відображення */
+}
+
+nav ul {
+  list-style-type: none; /* Відсутність маркерів списку */
+  padding: 0; /* Відсутність внутрішніх відступів */
+  display: flex; /* Розташування елементів у рядок */
+  justify-content: center; /* Центрування елементів навігації */
+}
+
+nav ul li {
+  margin: 0 15px; /* Відступи між пунктами меню */
+}
+
+nav ul li a {
+  color: var(--primary-color); /* Колір посилань */
+  text-decoration: none; /* Відсутність підкреслення тексту */
+  font-weight: bold; /* Жирний текст */
+  text-transform: uppercase; /* Всі літери великими */
+  letter-spacing: 1px; /* Інтервал між літерами */
+  transition: color 0.3s ease; /* Плавна зміна кольору при наведенні */
+}
+
+nav ul li a:hover {
+  color: var(--secondary-color); /* Зміна кольору при наведенні */
+  box-shadow: 0 5px 10px hsl(38, 100%, 57%); /* Тінь */
+}
+
+main {
+  padding: 80px 20px 20px; /* Відступи вмісту сторінки */
+  max-width: 800px; /* Максимальна ширина центрального блоку */
+  margin: 1% 0; /* Зовнішні відступи */
+  flex: 1 1 100%; /* Гнучкість контейнера */
+}
+
+.entry-list {
+  list-style-type: none; /* Відсутність маркерів списку */
+  padding: 0; /* Відсутність внутрішніх відступів */
+}
+
+/* Стиль для списку */
+.entry-list li {
+  background-color: rgba(47, 46, 47); /* Темний фон блоку запису */
+  margin-bottom: 20px; /* Відступи між записами */
+  padding: 20px; /* Відступи всередині блоку */
+  border-radius: 10px; /* Округлення країв */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.73); /* Тінь блоку */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Анімація при наведенні */
+}
+
+.entry-list li:hover {
+  transform: translateY(-12px) translateX(12px); /* Зміщення при наведенні */
+  box-shadow: 0 5px 30px #FF5722; /* Зміна тіні при наведенні */
+}
+
+
+form {
+  max-width: 500px; /* Максимальна ширина форми */
+  margin: 0 auto; /* Центрування форми */
+  background-color: rgba(255, 255, 255, 0.05); /* Напівпрозорий фон */
+  padding: 30px; /* Відступи всередині форми */
+  border-radius: 10px; /* Округлення країв */
+  box-shadow: 0 0 20px #FF5722; /* Тінь форми */
+}
+
+input[type="text"], input[type="email"], input[type="password"], textarea {
+  width: 100%; /* Ширина на весь контейнер */
+  padding: 12px; /* Відступи всередині полів */
+  margin-bottom: 20px; /* Відступи між полями */
+  background-color: rgba(255, 255, 255, 0.1); /* Напівпрозорий фон полів */
+  border: none; /* Відсутність рамки */
+  border-radius: 5px; /* Округлення країв полів */
+  color: var(--text-color); /* Колір тексту */
+}
+
+button {
+  background-color: var(--accent-color); /* Акцентний колір кнопки */
+  color: var(--text-color); /* Колір тексту кнопки */
+  padding: 12px 20px; /* Відступи всередині кнопки */
+  border: none; /* Відсутність рамки */
+  border-radius: 5px; /* Округлення країв */
+  cursor: pointer; /* Зміна курсора на руку */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Анімація при наведенні */
+}
+
+button:hover {
+  background-color: var(--secondary-color); /* Зміна кольору кнопки при наведенні */
+  box-shadow: 0 5px 10px #FF5722; /* Тінь */
+  transform: scale(1.05); /* Збільшення розміру при наведенні */
+}
+
+footer {
+  background-color: rgb(24, 24, 24); /* Темний фон футера */
+  text-align: center; /* Центрування тексту */
+  padding: 2px 20px; /* Відступи всередині футера */
+  font-size: 14px; /* Розмір шрифту */
+  color: #54362c; /* Колір тексту */
+  border-top: 1px solid #ff2800; /* Розділова лінія зверху */
+}
+body {
+  font-family: 'Roboto', sans-serif; /* Основний шрифт сторінки */
+  margin: 0; /* Скидання зовнішнього відступу */
+  padding: 0; /* Скидання внутрішнього відступу */
+  overflow-x: hidden; /* Вимкнення горизонтальної прокрутки */
+}
+
+header {
+  display: flex; /* Використання flex-контейнера */
+  justify-content: space-between; /* Простір між елементами */
+  align-items: center; /* Вирівнювання по вертикалі */
+  padding: 10px 10px; /* Відступи всередині заголовка */
+  background-color: #181818; /* Темний фон заголовка */
+  border-bottom: 1px solid hsl(0, 100%, 49%); /* Червона лінія внизу */
+  z-index: 1; /* Пріоритет відображення */
+  box-shadow: 0 5px 10px #FF5722; /* Тінь для заголовка */
+}
+
+.menu-trigger {
+  cursor: pointer; /* Курсор-рука при наведенні */
+  padding: 10px; /* Відступи всередині кнопки */
+  background-color: #292929; /* Темний фон кнопки */
+  border: 1px solid #f4433642; /* Напівпрозора рамка */
+  border-radius: 5px; /* Округлені кути */
+  display: flex; /* Використання flex для кнопки */
+  align-items: center; /* Вирівнювання вмісту по центру */
+  box-shadow: -2px 0 5px #FF5722; /* Тінь з лівого боку */
+}
+
+.menu-lines {
+  display: flex; /* Розташування ліній у стовпець */
+  flex-direction: column; /* Стовпчиковий порядок */
+  gap: 5px; /* Відстань між лініями */
+}
+
+.menu-lines div {
+  width: 25px; /* Довжина лінії */
+  height: 3px; /* Висота лінії */
+  background-color: #F44336; /* Червоний колір ліній */
+}
+
+/* Базовий стиль для бокового меню */
+.side-menu {
+  display: flex;
+  flex-direction: column; /* Вертикальне розташування */
+  justify-content: flex-start; /* Елементи вирівнюються зверху */
+  align-items: stretch; /* Елементи розтягуються на всю ширину */
+  position: fixed; /* Фіксація бокового меню */
+  top: 0;
+  left: -450px;
+  height: 100%; /* Меню займає всю висоту екрана */
+  width: 350px; /* Ширина меню */
+  background: linear-gradient(45deg, #300c00d4, #3f3f3f);
+  box-shadow: 2px 0 40px #FF5722;
+  transition: left 0.3s ease; /* Плавне висування меню */
+  z-index: 1000;
+}
+
+/* Анімація переливання тіні */
+@keyframes shadow-pulse {
+  0% {
+    box-shadow: 2px 0 40px rgb(255 87 34);
+  }
+  25% {
+    box-shadow: 2px 0 50px rgb(255 172 0 / 90%);
+  }
+  50% {
+    box-shadow: 2px 0 40px rgb(255 0 0);
+  }
+   75% {
+    box-shadow: 2px 0 50px rgb(255 0 118);
+  }
+   100% {
+    box-shadow: 2px 0 40px rgb(255 87 34);
+  }
+}
+/* Стиль для бокового меню з анімацією тіні */
+.side-menu:hover {
+  animation: shadow-pulse 4.5s ease-in-out infinite; /* Анімація тіні */
+  background: linear-gradient(45deg, #300c00d4, #3f3f3f);
+}
+
+
+
+.side-menu.open {
+  left: 0; /* Відкрите положення меню */
+  
+}
+
+
+
+.side-menu a {
+  display: inline-block; /* Робимо елемент блочним, щоб коректно застосувати відступи */
+  padding: 10px 12px 10px 20px; /* Внутрішні відступи кнопки */
+  font-size: 18px; /* Розмір тексту кнопки */
+  text-decoration: none; /* Прибираємо підкреслення тексту */
+  color: #919191; /* Початковий сірий колір тексту */
+  position: relative; /* Потрібно для роботи псевдоелемента `::before` */
+  text-align: center; /* Центрування тексту всередині кнопки */
+  overflow: hidden; /* Приховуємо будь-які елементи, що виходять за межі кнопки */
+  transition: color 0.3s ease; /* Плавний перехід кольору тексту */
+}
+
+.side-menu a.home::before {
+  background: linear-gradient(45deg, #ff228a38, #ff00ee38, #8136f438); /* Градієнтний фон */
+  border-radius: 30px; /* Заокруглення кутів*/
+}
+
+
+
+.side-menu a::before {
+  content: ''; /* Псевдоелемент для створення фонового шару */
+  position: absolute; /* Абсолютне позиціювання для покриття всієї кнопки */
+  inset: 0; /* Покриває кнопку повністю (скорочення для `top: 0; right: 0; bottom: 0; left: 0`) */
+  border-radius: 25px; /* Округлення країв фону для відповідності стилю кнопки */
+  z-index: -1; /* Розташування позаду тексту кнопки */
+  filter: blur(5px);
+  background: linear-gradient(45deg, #ff572238, #FF000038, #F4433638); /* Градієнтний фон */
+  opacity: 0; /* Початково фон невидимий */
+  transform: scale(0.5); /* Зменшуємо розмір фону для ефекту зростання */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Плавні ефекти появи фону */
+ }
+
+
+
+.side-menu a:hover::before {
+  opacity: 1; /* Робимо фон видимим при наведенні */
+  transform: scale(1); /* Фон розширюється до повного розміру */
+}
+
+.side-menu a:hover {
+  color: #ff6d52; /* Зміна кольору тексту для кращої читабельності */
+  animation: hover-animation 0.5s ease-in-out; /* Анімація тексту */
+
+}
+.side-menu-footer {
+  margin-top: auto; /* Фіксація футера внизу */
+  padding: 10px; /* Відступи всередині футера */
+  text-align: center; /* Центрування тексту */
+  font-size: 14px; /* Розмір тексту */
+  color: #979797; /* Сірий колір тексту */
+  border-top: 1px solid #f44336; /* Верхня червона лінія */
+  background-color: #343434; /* Темний фон футера */
+}
+
+@keyframes hover-animation {
+  0% {
+    transform: translateX(0); /* Початкове положення */
+  }
+  25% {
+    transform: translateX(5px); /* Зсув вправо */
+  }
+  50% {
+    transform: translateX(0px); /* Зсув вправо */
+  }
+  75% {
+    transform: translateX(3px); /* Зсув вправо */
+  }
+  100% {
+    transform: translateX(0); /* Повернення в початкове положення */
+  }
+}
+
+
+.header-center {
+  flex-grow: 1; /* Збільшення блоку для центрування */
+  letter-spacing: 5px; /* відстань між символами*/
+  font-family: cursive; /* Стиль тексту*/
+  text-align: center; /* Центрування тексту */
+  font-size: 30px; /* Розмір шрифту заголовка */
+  font-weight: bold; /*Жирний текст*/
+}
+
+.blur-effect {
+  filter: blur(5px); /* Ефект розмиття */
+  pointer-events: none; /* Вимкнення взаємодії з розмитим елементом */
+}
+#blurLayer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(0px); /* Початкове значення */
+  background-color: rgba(0, 0, 0, 0.0); /* Початково прозорий */
+  z-index: 900;
+  pointer-events: none; /* Вимикаємо взаємодію */
+  transition: backdrop-filter 0.5s ease, background-color 0.5s ease; /* Плавні переходи */
+}
+
+.side-menu.open ~ #blurLayer {
+  backdrop-filter: blur(10px); /* Розмиття при відкритті меню */
+  background-color: rgba(0, 0, 0, 0.3); /* Півпрозорий фон */
+  pointer-events: auto; /* Дозволяємо взаємодію */
+}
+
+#blurLayer.active {
+  backdrop-filter: blur(10px); /* Ефект розмиття */
+  background-color: rgba(0, 0, 0, 0.3); /* Темний прозорий фон */
+  pointer-events: auto; /* Дозволяємо взаємодію */
+}
+
+html.menu-open {
+  overflow: hidden; /* Заборона прокрутки */
+}
+

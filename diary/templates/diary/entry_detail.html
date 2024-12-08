@@ -1,0 +1,13 @@
+{% extends 'diary/base.html' %}
+
+{% block content %}
+<div class="entry-detail">
+    <h2>{{ entry.title }}</h2>
+    <p class="date">{{ entry.date|date:"d F Y H:i" }}</p>
+    <div class="content">{{ entry.content|linebreaks }}</div>
+    <div class="actions">
+        <a href="{% url 'edit_entry' entry.pk %}" class="btn btn-edit">Змінити</a>
+        <a href="{% url 'delete_entry' entry.pk %}" class="btn btn-delete">Видалити</a>
+    </div>
+</div>
+{% endblock %}
